@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фітнес Платформа</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Фітнес Платформа</h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#training">Тренування</a></li>
+                    <li><a href="#progress">Прогрес</a></li>
+                    <li><a href="#nutrition">Раціон</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="training">
+            <div class="container">
+                <h2>Тренування</h2>
+                <div id="workout-list" class="grid-container">
+                    <!-- Тренування генеруються JS -->
+                </div>
+            </div>
+        </section>
+
+        <section id="progress" class="highlight">
+            <div class="container">
+                <h2>Мій прогрес</h2>
+                <p id="progress-stats">Пройдені тренування: <strong>0</strong> | Загальний час: <strong>0 хв</strong></p>
+                <h3>Журнал тренувань</h3>
+                <ul id="workout-log" class="nutrition-list">
+                    <!-- Журнал тренувань -->
+                </ul>
+            </div>
+        </section>
+
+        <section id="nutrition">
+            <div class="container">
+                <h2>Раціон</h2>
+                <ul class="nutrition-list">
+                    <li>🥣 Сніданок: Вівсянка з фруктами — 350 ккал</li>
+                    <li>🍗 Обід: Курка з овочами — 600 ккал</li>
+                    <li>🐟 Вечеря: Риба на пару — 400 ккал</li>
+                </ul>
+                <button onclick="alert('Планування раціону недоступне')">Запланувати</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Контакти: <a href="mailto:fitness@example.com">fitness@example.com</a> | Телефон: +380123456789</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
