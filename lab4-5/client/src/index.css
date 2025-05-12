@@ -139,7 +139,7 @@ header nav a.active {
 .auth-logout-btn:hover {
   background: #fff;
   color: var(--color-primary);
-}* Nav */
+}/* Nav */
 nav {
   background: transparent;
   display: flex;
