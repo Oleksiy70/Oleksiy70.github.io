@@ -13,12 +13,19 @@ admin.initializeApp({
 });
 const db = admin.firestore();
 
+
+
 const app = express();
 const corsOptions = {
   origin: 'http://localhost:3000', // або ваш фронтенд-домен
   credentials: true,
 };
 app.use(cors(corsOptions));
+
+app.get('/', (req, res) => {
+  res.send('Hello, this is the root route of the server!');
+});
+
 
 app.use(express.json());
 
