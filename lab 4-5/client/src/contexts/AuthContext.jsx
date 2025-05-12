@@ -7,12 +7,6 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  async function updateProfile(profileData) {
-  await api.put('/auth/me', profileData); // припускаємо, що ви створили цей маршрут на сервері
-  setUser(prev => ({ ...prev, ...profileData }));
-}
-
-
   // Перевірка токена при старті
 useEffect(() => {
   const token = localStorage.getItem('token');
@@ -45,18 +39,20 @@ async function login({ email, password }) {
   setUser({ token: res.data.token, displayName: profile.data.nick });
 }
 
-async function updateProfile({ nick, weight, height }) {
-  // 1. Оновлюємо на сервері
-  await api.put('/auth/me', { nick, weight, height });
-  // 2. Оновлюємо локальний стан
-  setUser(prev => ({ ...prev, nick, weight, height }));
-  // 3. Додаємо запис у localStorage
-  const today = new Date().toLocaleDateString();
-  const entry = { date: today, weight: Number(weight) };
-  const log = JSON.parse(localStorage.getItem('weightLog') || '[]');
-  log.push(entry);
-  localStorage.setItem('weightLog', JSON.stringify(log));
+async function updateProfile(profileData) {
+  await api.put('/auth/me', profileData);
+  setUser(prev => ({ ...prev, ...profileData }));
+
+  // Якщо є вага — додаємо запис у ваговий лог
+  if (profileData.weight) {
+    const today = new Date().toLocaleDateString();
+    const entry = { date: today, weight: Number(profileData.weight) };
+    const log = JSON.parse(localStorage.getItem('weightLog') || '[]');
+    log.push(entry);
+    localStorage.setItem('weightLog', JSON.stringify(log));
+  }
 }
+
 
 
 

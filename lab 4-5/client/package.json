@@ -16,8 +16,7 @@
     "recharts": "^2.15.3",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://Oleksiy70.github.io/lab%204-5",
-
+  "homepage": "https://Oleksiy70.github.io/lab-4-5",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",

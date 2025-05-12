@@ -49,6 +49,8 @@ export default function NutritionPlan() {
         carb = 5 * w;
         fat = 0.8 * w;
         break;
+      default:
+          break;
     }
     const cal = prot * 4 + carb * 4 + fat * 9;
     setMacros({
