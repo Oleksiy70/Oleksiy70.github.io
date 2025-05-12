@@ -17,7 +17,7 @@ const db = admin.firestore();
 
 const app = express();
 const corsOptions = {
-  origin: 'http://localhost:3000', // або ваш фронтенд-домен
+  origin: ['http://localhost:3000', 'https://fitproject17.netlify.app'],
   credentials: true,
 };
 app.use(cors(corsOptions));
