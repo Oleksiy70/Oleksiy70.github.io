@@ -1,6 +1,4 @@
 // src/pages/ProtectedPage.js
-import React from "react";
-
 const ProtectedPage = () => {
   return (
     <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded shadow">
