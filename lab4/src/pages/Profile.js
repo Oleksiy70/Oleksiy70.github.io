@@ -1,4 +1,5 @@
 // src/pages/Profile.js
+import React, { useState, useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
 import { getUserProfile } from "../services/firestoreService";
 
