@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Раціон — Фітнес Платформа</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1><a href="index.html">Фітнес Платформа</a></h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="training.html">Тренування</a></li>
+          <li><a href="progress.html">Прогрес</a></li>
+          <li><a class="active" href="nutrition.html">Раціон</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="nutrition">
+      <h2>Раціон</h2>
+      <ul id="nutrition-list" class="nutrition-list"></ul>
+      <form id="nutrition-form" style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:1rem;">
+        <input type="text" id="meal-name" placeholder="Назва страви" required>
+        <input type="number" id="meal-kcal" placeholder="Калорійність, ккал" required>
+        <button type="submit">Додати</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Контакти: <a href="mailto:fitness@example.com">fitness@example.com</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // --- НUTRITION: завантажуємо зі сховища і виводимо ---
+    const form = document.getElementById('nutrition-form');
+    const list = document.getElementById('nutrition-list');
+
+    function renderMeals() {
+      const meals = JSON.parse(localStorage.getItem('nutritionList') || '[]');
+      list.innerHTML = '';
+      meals.forEach((m, i) => {
+        const li = document.createElement('li');
+        li.textContent = `🍽️ ${m.name} — ${m.kcal} ккал`;
+        const del = document.createElement('button');
+        del.textContent = '🗑️';
+        del.addEventListener('click', () => {
+          meals.splice(i,1);
+          localStorage.setItem('nutritionList', JSON.stringify(meals));
+          renderMeals();
+        });
+        li.appendChild(del);
+        list.appendChild(li);
+      });
+    }
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const name = document.getElementById('meal-name').value.trim();
+      const kcal = document.getElementById('meal-kcal').value;
+      if (!name || !kcal) return;
+      const meals = JSON.parse(localStorage.getItem('nutritionList') || '[]');
+      meals.push({ name, kcal });
+      localStorage.setItem('nutritionList', JSON.stringify(meals));
+      form.reset();
+      renderMeals();
+    });
+
+    renderMeals();
+  </script>
+</body>
+</html>
