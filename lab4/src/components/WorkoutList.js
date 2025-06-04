@@ -1,10 +1,10 @@
 import WorkoutCard from './WorkoutCard';
 
 const allWorkouts = [
-  { id: 1, title: 'Кардіо для початківців', type: 'cardio', duration: 30, image: '/images/cardio.jpg' },
-  { id: 2, title: 'Силове тренування', type: 'strength', duration: 45, image: '/images/silove.jpg' },
-  { id: 3, title: 'Розтяжка', type: 'stretching', duration: 20, image: '/images/roztyah.jpg' },
-  { id: 4, title: 'Йога для всіх', type: 'yoga', duration: 40, image: '/images/yoga.jpg' }
+  { id: 1, title: 'Кардіо для початківців', type: 'cardio', duration: 30, image: '/lab4/images/cardio.jpg' },
+  { id: 2, title: 'Силове тренування', type: 'strength', duration: 45, image: '/lab4/images/silove.jpg' },
+  { id: 3, title: 'Розтяжка', type: 'stretching', duration: 20, image: '/lab4/images/roztyah.jpg' },
+  { id: 4, title: 'Йога для всіх', type: 'yoga', duration: 40, image: '/lab4/images/yoga.jpg' }
 ];
 
 export default function WorkoutList() {
